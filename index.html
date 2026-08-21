@@ -2,60 +2,88 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Una carta para ti ❤️</title>
-<meta name="theme-color" content="#6b3044">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Para ti ❤️</title>
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif}
-body{background:radial-gradient(circle at 15% 10%,rgba(255,255,255,.7),transparent 30%),radial-gradient(circle at 85% 90%,rgba(255,210,220,.4),transparent 35%),linear-gradient(135deg,#f9e8ed,#fff8f8 48%,#f5dce3);color:#542b39;display:flex;justify-content:center;align-items:center;padding:28px 16px;overflow-x:hidden}
-.petals{position:fixed;inset:0;pointer-events:none;overflow:hidden}
-.petal{position:absolute;top:-30px;font-size:20px;opacity:.65;animation:fall linear infinite}
-@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:.1}}
-.wrap{width:min(720px,100%);position:relative;z-index:2}
-.intro{text-align:center;margin-bottom:20px}
-.tiny{letter-spacing:4px;text-transform:uppercase;font:12px Arial,sans-serif;color:#9b6271}
-h1{font-size:clamp(38px,9vw,68px);font-weight:normal;margin:10px 0 6px;color:#672c40}
-.heart{font-size:30px;color:#b66b7b}
-.card{background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border:1px solid rgba(145,74,94,.18);border-radius:24px;padding:clamp(28px,7vw,60px);box-shadow:0 24px 70px rgba(90,38,55,.16);position:relative}
-.card:before,.card:after{content:"";position:absolute;width:35px;height:35px;border-color:#d7a1ad}
-.card:before{left:18px;top:18px;border-left:1px solid;border-top:1px solid}
-.card:after{right:18px;bottom:18px;border-right:1px solid;border-bottom:1px solid}
-.salute{font-size:24px;margin:0 0 24px;color:#74364b}
-p{font-size:18px;line-height:1.9;margin:0 0 20px}
-.divider{text-align:center;color:#b46c7b;font-size:22px;margin:26px 0}
-.signature{text-align:right;margin-top:30px;font-style:italic;font-size:21px}
-.footer{text-align:center;margin-top:18px;font:12px Arial,sans-serif;letter-spacing:1px;color:#9b6271}
+body{margin:0;min-height:100vh;background:linear-gradient(135deg,#f7dfe7,#fff,#efd0da);font-family:Georgia,serif;color:#5b3040;display:flex;justify-content:center;align-items:center;overflow:hidden}
+#inicio{position:fixed;inset:0;background:linear-gradient(135deg,#f7dfe7,#fff);z-index:5;display:flex;align-items:center;justify-content:center;text-align:center;transition:1s}
+#inicio.oculto{opacity:0;visibility:hidden}
+.sobre{width:230px;height:155px;background:white;border-radius:10px;box-shadow:0 20px 50px #70405240;position:relative;animation:flotar 2.5s infinite}
+.sobre:before{content:"";position:absolute;left:0;top:0;border-left:115px solid transparent;border-right:115px solid transparent;border-top:82px solid #d993a5}
+.sobre:after{content:"♥";position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);font-size:38px;color:#a64d65}
+.texto{margin-top:25px;font:13px Arial;letter-spacing:2px;color:#74364b}
+@keyframes flotar{50%{transform:translateY(-12px)}}
+.contenedor{width:min(700px,92%);text-align:center}
+.titulo{letter-spacing:4px;font:11px Arial;color:#a06273;text-transform:uppercase}
+h1{font-size:clamp(45px,10vw,70px);font-weight:normal;margin:10px;color:#682e42}
+.corazon{font-size:32px;animation:pulso 1.5s infinite}
+@keyframes pulso{50%{transform:scale(1.25)}}
+.carta{background:#fffffff0;padding:45px 35px;border-radius:25px;box-shadow:0 20px 60px #6d354520;animation:entrar 1.3s .5s both}
+@keyframes entrar{from{opacity:0;transform:translateY(35px) scale(.96)}to{opacity:1;transform:none}}
+p{font-size:18px;line-height:1.9;margin:18px 0}
+.aparecer{animation:aparecer 1s both}
+.a1{animation-delay:1s}.a2{animation-delay:1.8s}.a3{animation-delay:2.6s}.a4{animation-delay:3.4s}
+@keyframes aparecer{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.firma{text-align:right;font-style:italic;font-size:21px}
+.corazones{position:fixed;inset:0;pointer-events:none}
+.corazones span{position:absolute;top:-30px;animation:caer 10s linear infinite;opacity:.6}
+@keyframes caer{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
 </style>
 </head>
 <body>
-<div class="petals">
-<span class="petal" style="left:8%;animation-duration:11s;animation-delay:-2s">♥</span>
-<span class="petal" style="left:24%;animation-duration:14s;animation-delay:-8s">♡</span>
-<span class="petal" style="left:47%;animation-duration:12s;animation-delay:-5s">♥</span>
-<span class="petal" style="left:69%;animation-duration:15s;animation-delay:-10s">♡</span>
-<span class="petal" style="left:88%;animation-duration:10s;animation-delay:-4s">♥</span>
+
+<div id="inicio" onclick="abrir()">
+<div>
+<div class="sobre"></div>
+<div class="texto">TOCA PARA ABRIR TU CARTA ♥</div>
+</div>
 </div>
 
-<main class="wrap">
-<header class="intro">
-<div class="tiny">Una pequeña sorpresa para ti</div>
+<div class="corazones">
+<span style="left:10%;animation-delay:0s">♥</span>
+<span style="left:30%;animation-delay:3s">♡</span>
+<span style="left:55%;animation-delay:1s">♥</span>
+<span style="left:75%;animation-delay:5s">♡</span>
+<span style="left:90%;animation-delay:2s">♥</span>
+</div>
+
+<div class="contenedor">
+<div class="titulo">Una pequeña sorpresa para ti</div>
 <h1>Para ti</h1>
-<div class="heart">♥</div>
-</header>
+<div class="corazon">♥</div>
 
-<section class="card">
-<p class="salute">Mi amor,</p>
-<p>No sé si existen palabras suficientes para explicar todo lo que siento por ti, pero quiero intentarlo.</p>
-<p>Desde que llegaste a mi vida, hay momentos que se sienten más bonitos simplemente porque puedo compartirlos contigo. Me encanta tu forma de ser, tu manera de hacerme sonreír y esos pequeños detalles que quizá para ti no significan mucho, pero para mí significan muchísimo.</p>
-<p>No quiero prometerte una vida perfecta, porque sé que tendremos días difíciles. Lo que sí quiero es estar a tu lado, cuidarte, escucharte, apoyarte y seguir construyendo recuerdos contigo.</p>
-<div class="divider">♡</div>
-<p>Gracias por existir, por dejarme conocerte y por ocupar un lugar tan especial en mi corazón.</p>
-<p>Te quiero muchísimo. ❤️</p>
-<p class="signature">Con todo mi amor,<br><strong>Dany</strong></p>
-</section>
+<div class="carta">
+<p class="aparecer a1">Mi amor,</p>
 
-<div class="footer">HECHO CON AMOR · PARA UNA PERSONA ESPECIAL</div>
-</main>
+<p class="aparecer a2">
+No sé si existen palabras suficientes para explicar todo lo que siento por ti, pero quiero intentarlo.
+</p>
+
+<p class="aparecer a3">
+Desde que llegaste a mi vida, hay momentos que se sienten más bonitos simplemente porque puedo compartirlos contigo. Me encanta tu forma de ser, tu manera de hacerme sonreír y esos pequeños detalles que quizá para ti no significan mucho, pero para mí significan muchísimo.
+</p>
+
+<p class="aparecer a3">
+No quiero prometerte una vida perfecta, porque sé que tendremos días difíciles. Lo que sí quiero es estar a tu lado, cuidarte, escucharte, apoyarte y seguir construyendo recuerdos contigo.
+</p>
+
+<p class="aparecer a4">Gracias por existir y por ocupar un lugar tan especial en mi corazón.</p>
+
+<p class="aparecer a4">Te quiero muchísimo. ❤️</p>
+
+<p class="firma aparecer a4">
+Con todo mi amor,<br>
+<strong>Dany</strong>
+</p>
+</div>
+</div>
+
+<script>
+function abrir(){
+document.getElementById("inicio").classList.add("oculto");
+}
+</script>
+
 </body>
 </html>
