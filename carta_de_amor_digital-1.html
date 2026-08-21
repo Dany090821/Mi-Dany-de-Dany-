@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Una carta para ti ❤️</title>
+<meta name="theme-color" content="#6b3044">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif}
+body{
+  background:
+    radial-gradient(circle at 15% 10%,rgba(255,255,255,.65),transparent 30%),
+    radial-gradient(circle at 85% 90%,rgba(255,210,220,.35),transparent 35%),
+    linear-gradient(135deg,#f9e8ed,#fff8f8 48%,#f5dce3);
+  color:#542b39;
+  display:flex;justify-content:center;align-items:center;padding:28px 16px;
+  overflow-x:hidden;
+}
+.petals{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.petal{position:absolute;top:-30px;font-size:20px;opacity:.65;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:.1}}
+.wrap{width:min(720px,100%);position:relative;z-index:2}
+.intro{text-align:center;margin-bottom:20px}
+.intro .tiny{letter-spacing:4px;text-transform:uppercase;font:12px Arial,sans-serif;color:#9b6271}
+h1{font-size:clamp(38px,9vw,68px);font-weight:normal;margin:10px 0 6px;color:#672c40}
+.heart{font-size:30px;color:#b66b7b}
+.card{
+  background:rgba(255,255,255,.86);backdrop-filter:blur(8px);
+  border:1px solid rgba(145,74,94,.18);
+  border-radius:24px;padding:clamp(28px,7vw,60px);
+  box-shadow:0 24px 70px rgba(90,38,55,.16);
+  position:relative;
+}
+.card:before,.card:after{content:"";position:absolute;width:35px;height:35px;border-color:#d7a1ad}
+.card:before{left:18px;top:18px;border-left:1px solid;border-top:1px solid}
+.card:after{right:18px;bottom:18px;border-right:1px solid;border-bottom:1px solid}
+.salute{font-size:24px;margin:0 0 24px;color:#74364b}
+p{font-size:18px;line-height:1.9;margin:0 0 20px}
+.divider{text-align:center;color:#b46c7b;font-size:22px;margin:26px 0}
+.signature{text-align:right;margin-top:30px;font-style:italic;font-size:21px}
+.footer{text-align:center;margin-top:18px;font:12px Arial,sans-serif;letter-spacing:1px;color:#9b6271}
+button{
+  display:block;margin:25px auto 0;border:0;border-radius:999px;padding:13px 22px;
+  background:#6b3044;color:white;font:14px Arial,sans-serif;cursor:pointer;
+  box-shadow:0 8px 20px rgba(107,48,68,.2)
+}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="petals" aria-hidden="true">
+  <span class="petal" style="left:8%;animation-duration:11s;animation-delay:-2s">♥</span>
+  <span class="petal" style="left:24%;animation-duration:14s;animation-delay:-8s">♡</span>
+  <span class="petal" style="left:47%;animation-duration:12s;animation-delay:-5s">♥</span>
+  <span class="petal" style="left:69%;animation-duration:15s;animation-delay:-10s">♡</span>
+  <span class="petal" style="left:88%;animation-duration:10s;animation-delay:-4s">♥</span>
+</div>
+
+<main class="wrap">
+  <header class="intro">
+    <div class="tiny">Una pequeña sorpresa para ti</div>
+    <h1>Para ti</h1>
+    <div class="heart">♥</div>
+  </header>
+
+  <section class="card">
+    <p class="salute">Mi amor,</p>
+
+    <p>No sé si existen palabras suficientes para explicar todo lo que siento por ti, pero quiero intentarlo.</p>
+
+    <p>Desde que llegaste a mi vida, hay momentos que se sienten más bonitos simplemente porque puedo compartirlos contigo. Me encanta tu forma de ser, tu manera de hacerme sonreír y esos pequeños detalles que quizá para ti no significan mucho, pero para mí significan muchísimo.</p>
+
+    <p>No quiero prometerte una vida perfecta, porque sé que tendremos días difíciles. Lo que sí quiero es estar a tu lado, cuidarte, escucharte, apoyarte y seguir construyendo recuerdos contigo.</p>
+
+    <div class="divider">♡</div>
+
+    <p>Gracias por existir, por dejarme conocerte y por ocupar un lugar tan especial en mi corazón.</p>
+
+    <p>Te quiero muchísimo. ❤️</p>
+
+    <p class="signature">Con todo mi amor,<br><strong>Dany</strong></p>
+  </section>
+
+  <div class="footer">HECHO CON AMOR · PARA UNA PERSONA ESPECIAL</div>
+</main>
+
+<script>
+document.querySelectorAll('.petal').forEach(p=>{
+  p.style.animationDuration=(10+Math.random()*7)+'s';
+});
+</script>
+</body>
+</html>
